@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nginx:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+      - ./dummy.conf:/etc/nginx/conf.d/dummy.conf
+      - ./certs/:/etc/nginx/certs/
+    container_name: dummy_container
